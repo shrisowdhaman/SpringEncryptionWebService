@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+	xmlns:wss="http://jax-ws.dev.java.net/spring/servlet" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://jax-ws.dev.java.net/spring/core
+  		 http://jax-ws.dev.java.net/spring/core.xsd
+   		http://jax-ws.dev.java.net/spring/servlet
+   		http://jax-ws.dev.java.net/spring/servlet.xsd">
+
+	<import resource="dispatcher-servlet.xml" />
+
+	<!-- Web service binding status -->
+
+	<wss:binding url="/AESWS">
+		<wss:service>
+			<ws:service bean="#shriAESWS" />
+		</wss:service>
+	</wss:binding>
+
+	<!-- Web service binding status ends -->
+
+	<!-- Web service methods bean Declaration -->
+
+	<!-- Service -->
+	<bean id="shriAESWS" class="com.shri.ws.service.WSAppService">
+		<property name="enqObjectImpl" ref="enqObjectImpl"></property>
+	</bean>
+	<!-- Service Ends -->
+
+	<!-- Implementation Object -->
+	<bean id="enqObjectImpl" class="com.shri.ws.impl.EnqObjectImpl" />
+	<!-- Implementation Object Ends -->
+
+
+	<!-- Web service methods bean Declaration Ends -->
+
+</beans>

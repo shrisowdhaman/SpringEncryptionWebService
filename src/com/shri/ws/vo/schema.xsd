@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="REQ" nillable="true" type="xs:anyType"/>
+
+  <xs:complexType name="REQ">
+    <xs:sequence>
+      <xs:element name="NAME" type="xs:string"/>
+      <xs:element name="ADDRESS" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  
+</xs:schema>
+
